@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseTestLibrary", "DatabaseTestLibrary.sqlproj", "{68263C94-748D-4FA7-B6CD-F29C7EB9F809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLSample", "..\SQLApp\SQLSample.csproj", "{7973877C-3ADE-4E3F-9AEB-B1099FA37EB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLSample", "SQLApp\SQLSample.csproj", "{7973877C-3ADE-4E3F-9AEB-B1099FA37EB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
