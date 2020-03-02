@@ -77,8 +77,8 @@ namespace SQLApp
                         dataReader.Read();
                         User user = new User();
                         user.Id = dataReader.GetInt32(dataReader.GetOrdinal("UserId"));
-                        user.Name = dataReader.GetString(dataReader.GetOrdinal("UserName"));
-                        user.Password = dataReader.GetString(dataReader.GetOrdinal("Password"));
+                        user.Name = dataReader.GetString(dataReader.GetOrdinal("UserName")).TrimEnd();
+                        user.Password = dataReader.GetString(dataReader.GetOrdinal("Password")).TrimEnd();
                         user.PersonId = dataReader.GetInt32(dataReader.GetOrdinal("PersonId"));
                         return user;
                     }

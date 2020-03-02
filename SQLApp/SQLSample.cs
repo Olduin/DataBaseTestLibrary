@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 
 
 namespace SQLApp
 {
-    public class SQLApp
+    static class SQLApp
     {
             public static void Main()
             {
@@ -23,7 +24,10 @@ namespace SQLApp
             //var person = repository.Persons.GetPerson("Андрей", "Чижиков", "Михайлович");
             //repository.Genres.AddGenre(new Genre { GenreName = "Сборник стихотворений" });
             //var genre = repository.Genres.GetGenre("Детектив");
-            repository.Authors.AddAuthor(new Author { PersonId = 5, NickName = "BasiK" });
+            //repository.Authors.AddAuthor(new Author { PersonId = 5, NickName = "BasiK" });
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MyAppContext(repository));
         }
     }
 }

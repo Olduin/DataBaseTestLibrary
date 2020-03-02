@@ -10,9 +10,13 @@ namespace SQLApp
     public class Repository
     {
         private string connectionString;
-        
+
+
         public Repository(string connectionString)
         {
+            if (String.IsNullOrEmpty(connectionString))
+                throw new Exception("Строка подключения к базе не может быть пустой!");
+
             this.connectionString = connectionString;
         }   
         
