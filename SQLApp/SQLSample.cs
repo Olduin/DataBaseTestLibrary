@@ -29,5 +29,9 @@ namespace SQLApp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MyAppContext(repository));
         }
+
+        public class LibrarianForm
+        {
+        }
     }
 }

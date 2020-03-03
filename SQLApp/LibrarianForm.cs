@@ -18,8 +18,21 @@ namespace SQLApp
         {
             this.myAppContext = myAppContext;
             InitializeComponent();
-            
+            LBSelectPosition.SelectedIndex = 0 ;
             this.dataGridView1.DataSource = myAppContext.GetUsers().Tables["Users"];
         }
+        public void LBSelectPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string SelectFlag = LBSelectPosition.SelectedItem.ToString();
+            if (LBSelectPosition.SelectedIndex == 0)
+            {
+                this.dataGridView1.DataSource = myAppContext.GetUsers().Tables["Users"];
+            }
+            else
+            {
+                this.dataGridView1.DataSource = myAppContext.GetUsersLibrarian(SelectFlag).Tables["Users"];
+            }
+        }
+
     }
 }

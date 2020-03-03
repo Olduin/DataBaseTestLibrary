@@ -114,12 +114,12 @@ namespace SQLApp
             return users;
         }
 
-        public DataSet GetUserLibrarian()
+        public DataSet GetUserLibrarian(string selectString)
         {
             DataSet users = new DataSet();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query =
+                string query = String.Format(
                     @"Select
 	                    Ua.UserId as [№ сотрудника]
 	                    ,Ua.Username as [Имя пользовател]
@@ -128,10 +128,11 @@ namespace SQLApp
 	                    ,Pr.LastName as [Фамилия]
 	                    ,Pr.MiddleName as [Отчество]
 	                    ,lop.JobTitles as [Должность]
+                        ,ua.dismissed as [Уволен]
                     From dbo.User_autorisation ua 
                     left join dbo.Person pr on pr.PersonId=ua.PersonID
                     left join dbo.List_Of_Position lop on lop.IDPosition=pr.IdPosition
-                    where lop.JobTitles='Библиотекарь'";
+                    where lop.JobTitles='{0}'", selectString);
                 connection.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(query,connectionString);
                 adapter.Fill(users, "Users");

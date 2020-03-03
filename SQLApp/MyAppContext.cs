@@ -45,9 +45,9 @@ namespace SQLApp
             return repository.Users.GetUsers();
         }
 
-        public DataSet GetUsersLibrarian()
+        public DataSet GetUsersLibrarian(string selectString)
         {
-            return repository.Users.GetUserLibrarian();
+            return repository.Users.GetUserLibrarian(selectString);
         }
 
         private void ChangeContext(ContextType contextType)
