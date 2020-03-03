@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace SQLApp
 {
@@ -25,6 +26,7 @@ namespace SQLApp
             form.FormClosed += OnFormClosed;
             form.Show();
         }
+      
         public bool Authorization(AuthInformationDTO authInfo)
         {
             User user = repository.Users.GetUser(authInfo.Login, authInfo.Password);
@@ -36,6 +38,16 @@ namespace SQLApp
                 return true;
             }
             return false;
+        }
+
+        public DataSet GetUsers()
+        {
+            return repository.Users.GetUsers();
+        }
+
+        public DataSet GetUsersLibrarian()
+        {
+            return repository.Users.GetUserLibrarian();
         }
 
         private void ChangeContext(ContextType contextType)

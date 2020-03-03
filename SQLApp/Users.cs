@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace SQLApp
 {
@@ -85,6 +86,63 @@ namespace SQLApp
                 }
                 return null;
             }
+        }
+
+        public DataSet GetUsers()
+        {
+            DataSet users = new DataSet();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query =
+                    @"Select
+                        Ua.UserId as [№ сотрудника]
+	                    ,Ua.Username as [Имя пользовател]
+	                    ,ua.Password as [Пароль]
+	                    ,Pr.FirstName as [Имя]
+	                    ,Pr.LastName as [Фамилия]
+	                    ,Pr.MiddleName as [Отчество]
+	                    ,lop.JobTitles as [Должность]
+                        ,ua.dismissed as [Уволен]
+                    From dbo.User_autorisation ua
+                    left join dbo.Person pr on pr.PersonId = ua.PersonID
+                    left join dbo.List_Of_Position lop on lop.IDPosition = pr.IdPosition";
+                //string query = "Select UserName,Password From dbo.User_autorisation";
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(users, "Users");   
+            }
+            return users;
+        }
+
+        public DataSet GetUserLibrarian()
+        {
+            DataSet users = new DataSet();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query =
+                    @"Select
+	                    Ua.UserId as [№ сотрудника]
+	                    ,Ua.Username as [Имя пользовател]
+	                    ,ua.Password as [Пароль]
+	                    ,Pr.FirstName as [Имя]
+	                    ,Pr.LastName as [Фамилия]
+	                    ,Pr.MiddleName as [Отчество]
+	                    ,lop.JobTitles as [Должность]
+                    From dbo.User_autorisation ua 
+                    left join dbo.Person pr on pr.PersonId=ua.PersonID
+                    left join dbo.List_Of_Position lop on lop.IDPosition=pr.IdPosition
+                    where lop.JobTitles='Библиотекарь'";
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query,connectionString);
+                adapter.Fill(users, "Users");
+            }
+            return users;
+        }
+
+        public bool UpdateUser(User user)
+        {
+
+            throw new NotImplementedException();
         }
     }
 }

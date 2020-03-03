@@ -33,6 +33,8 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbLogin = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,16 +50,16 @@
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(12, 12);
+            this.tbLogin.Location = new System.Drawing.Point(63, 16);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(214, 20);
+            this.tbLogin.Size = new System.Drawing.Size(138, 20);
             this.tbLogin.TabIndex = 1;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(12, 38);
+            this.tbPassword.Location = new System.Drawing.Point(63, 42);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(214, 20);
+            this.tbPassword.Size = new System.Drawing.Size(138, 20);
             this.tbPassword.TabIndex = 2;
             // 
             // statusStrip1
@@ -75,11 +77,31 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
+            // lbLogin
+            // 
+            this.lbLogin.AutoSize = true;
+            this.lbLogin.Location = new System.Drawing.Point(19, 19);
+            this.lbLogin.Name = "lbLogin";
+            this.lbLogin.Size = new System.Drawing.Size(38, 13);
+            this.lbLogin.TabIndex = 4;
+            this.lbLogin.Text = "Логин";
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Location = new System.Drawing.Point(12, 45);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(45, 13);
+            this.lbPassword.TabIndex = 5;
+            this.lbPassword.Text = "Пароль";
+            // 
             // AutorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(243, 157);
+            this.Controls.Add(this.lbPassword);
+            this.Controls.Add(this.lbLogin);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbLogin);
@@ -100,6 +122,8 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.Label lbPassword;
     }
 }
 

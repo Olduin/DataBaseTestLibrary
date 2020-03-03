@@ -13,10 +13,13 @@ namespace SQLApp
     public partial class LibrarianForm : Form
     {
         private MyAppContext myAppContext;
+
         public LibrarianForm(MyAppContext myAppContext)
         {
             this.myAppContext = myAppContext;
             InitializeComponent();
+            
+            this.dataGridView1.DataSource = myAppContext.GetUsers().Tables["Users"];
         }
     }
 }
