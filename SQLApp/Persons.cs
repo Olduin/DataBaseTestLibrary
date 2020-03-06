@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace SQLApp
 {
@@ -77,6 +78,31 @@ namespace SQLApp
                 }
             }
             return null;
+        }
+
+        public DataSet GetPersonsPerson(string selectString)
+        {
+            DataSet users = new DataSet();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query =
+                    @"Select  
+	                    Pr.FirstName as [Имя]
+	                    ,Pr.LastName as [Фамилия]
+	                    ,Pr.MiddleName as [Отчество]
+	                    ,lop.JobTitles as [Должность]
+
+                    From dbo.Person pr
+                    left join dbo.List_Of_Position lop on lop.IDPosition=pr.IdPosition";
+
+                //if (selectString != "Все")
+                   // query += String.Format(" where lop.JobTitles='{0}'", selectString);
+
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
+                adapter.Fill(users, "Persons");
+            }
+            return users;
         }
     }
 }

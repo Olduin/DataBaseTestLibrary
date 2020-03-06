@@ -47,17 +47,22 @@ namespace SQLApp
 
         public DataSet GetUsersLibrarian(string selectString)
         {
-            return repository.Users.GetUserLibrarian(selectString);
+            return repository.Users.GetUsersEmployee(selectString);
         }
 
         private void ChangeContext(ContextType contextType)
         {
-            if (contextType == ContextType.Librarian)
+            if (contextType == ContextType.Librarian)// Добавить сюда распределение форм по idPosit
             {
-                form = new LibrarianForm(this);
+                form = new Employee(this);
                 form.FormClosed += OnFormClosed;
                 form.Show();
             }
+        }
+
+        public bool AddUser(User user)
+        {
+            return repository.Users.AddUser(user);
         }
 
         private void OnFormClosed(object sender, EventArgs e)
@@ -68,6 +73,11 @@ namespace SQLApp
             }
             else
                 ExitThread();
+        }
+
+        public DataSet GetPersonsPerson(string selectString)
+        {
+            return repository.Persons.GetPersonsPerson(selectString);
         }
     }
 

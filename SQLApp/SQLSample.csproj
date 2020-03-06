@@ -55,6 +55,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthInformationDTO.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Authors.cs" />
@@ -65,16 +71,23 @@
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs" />
+    <Compile Include="EventArgsUserAction.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Genres.cs" />
-    <Compile Include="LibrarianForm.cs">
+    <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LibrarianForm.Designer.cs">
-      <DependentUpon>LibrarianForm.cs</DependentUpon>
+    <Compile Include="Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="MyAppContext.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonForm.Designer.cs">
+      <DependentUpon>PersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persons.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SQLSample.cs" />
@@ -127,8 +140,14 @@
     <EmbeddedResource Include="AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LibrarianForm.resx">
-      <DependentUpon>LibrarianForm.cs</DependentUpon>
+    <EmbeddedResource Include="EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonForm.resx">
+      <DependentUpon>PersonForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
